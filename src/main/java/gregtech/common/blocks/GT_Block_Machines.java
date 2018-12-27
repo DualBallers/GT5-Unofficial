@@ -334,6 +334,7 @@ public class GT_Block_Machines
     public void onBlockExploded(World aWorld, int aX, int aY, int aZ, Explosion aExplosion) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if ((tTileEntity instanceof BaseMetaTileEntity)) {
+            GT_Log.exp.println("Explosion at :"+aX + " | " + aY+ " | "  + aZ +" DIMID: " + aWorld.provider.dimensionId+ " due to near explosion!");
             ((BaseMetaTileEntity) tTileEntity).doEnergyExplosion();
         }
         super.onBlockExploded(aWorld, aX, aY, aZ, aExplosion);
@@ -372,7 +373,22 @@ public class GT_Block_Machines
         }
         return mTemporaryTileEntity.get() == null ? new ArrayList() : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops();
     }
+    @Override
+    public boolean removedByPlayer(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, boolean aWillHarvest) {
+        if (aWillHarvest) {
+            return true; // This delays deletion of the block until after getDrops
+        } else {
+            return super.removedByPlayer(aWorld, aPlayer, aX, aY, aZ, false);
+        }
+    }
 
+    @Override
+    public void harvestBlock(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, int aMeta)
+    {
+        super.harvestBlock(aWorld, aPlayer, aX, aY, aZ, aMeta);
+        aWorld.setBlockToAir(aX, aY, aZ);
+    }
+    
     public int getComparatorInputOverride(World aWorld, int aX, int aY, int aZ, int aSide) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (((tTileEntity instanceof IGregTechTileEntity))) {
@@ -408,6 +424,7 @@ public class GT_Block_Machines
             TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
             if ((tTileEntity != null) && (chance < 1.0F)) {
                 if (((tTileEntity instanceof BaseMetaTileEntity)) && (GregTech_API.sMachineNonWrenchExplosions)) {
+                    GT_Log.exp.println("Explosion at :"+aX + " | " + aY+ " | "  + aZ +" DIMID: "+ aWorld.provider.dimensionId+ " due to NonWrench picking/Rain!");
                     ((BaseMetaTileEntity) tTileEntity).doEnergyExplosion();
                 }
             } else {

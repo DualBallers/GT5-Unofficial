@@ -10,6 +10,7 @@ import gregtech.api.metatileentity.BaseMetaTileEntity;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_ModHandler.RecipeBits;
+import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import ic2.core.Ic2Items;
@@ -660,6 +661,7 @@ public class GT_MetaTileEntity_BasicMachine_GT_Recipe extends GT_MetaTileEntity_
                 return getRecipeList().containsInput(aStack);
         }
     }
+
 
     @Override
     public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {

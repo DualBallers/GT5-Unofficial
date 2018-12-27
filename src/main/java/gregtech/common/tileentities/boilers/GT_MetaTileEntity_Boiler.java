@@ -1,5 +1,6 @@
 package gregtech.common.tileentities.boilers;
 
+import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -7,6 +8,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
 import gregtech.api.objects.GT_ItemStack;
+import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
@@ -196,6 +198,7 @@ public abstract class GT_MetaTileEntity_Boiler
                         this.mHadNoWater = true;
                     } else {
                         if (this.mHadNoWater) {
+                            GT_Log.exp.println("Boiler "+this.mName+" had no Water!");
                             aBaseMetaTileEntity.doExplosion(2048L);
                             return;
                         }
@@ -254,11 +257,19 @@ public abstract class GT_MetaTileEntity_Boiler
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return false;
+        if (GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation)
+            return true;
+        else
+            return false;
+
     }
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return false;
+        if(GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation)
+            return true;
+        else
+            return false;
+
     }
 
     public void doSound(byte aIndex, double aX, double aY, double aZ) {

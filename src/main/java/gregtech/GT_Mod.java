@@ -203,6 +203,20 @@ public class GT_Mod implements IGT_Mod {
             } catch (Throwable e) {
             }
         }
+        if (tMainConfig.get(aTextGeneral, "LoggingExplosions", true).getBoolean(true)) {
+            GT_Log.mExplosionLog = new File(aEvent.getModConfigurationDirectory().getParentFile(), "logs/Explosion.log");
+            if (!GT_Log.mExplosionLog.exists()) {
+                try {
+                    GT_Log.mExplosionLog.createNewFile();
+                } catch (Throwable e) {
+                }
+            }
+            try {
+                GT_Log.exp = new PrintStream(GT_Log.mExplosionLog);
+            } catch (Throwable e) {
+            }
+        }
+
         if (tMainConfig.get(aTextGeneral, "LoggingPlayerActivity", true).getBoolean(true)) {
             GT_Log.mPlayerActivityLogFile = new File(aEvent.getModConfigurationDirectory().getParentFile(), "logs/PlayerActivity.log");
             if (!GT_Log.mPlayerActivityLogFile.exists()) {
@@ -291,6 +305,7 @@ public class GT_Mod implements IGT_Mod {
         gregtechproxy.mSkeletonsShootGTArrows = tMainConfig.get(aTextGeneral, "SkeletonsShootGTArrows", 16).getInt(16);
         gregtechproxy.mFlintChance = tMainConfig.get(aTextGeneral, "FlintAndSteelChance", 30).getInt(30);
         gregtechproxy.mItemDespawnTime = tMainConfig.get(aTextGeneral, "ItemDespawnTime", 6000).getInt(6000);
+        gregtechproxy.mAllowSmallBoilerAutomation = tMainConfig.get(aTextGeneral,"AllowSmallBoilerAutomation",false).getBoolean(false);
         gregtechproxy.mHardMachineCasings= tMainConfig.get(aTextGeneral,"HardMachineCasings",true).getBoolean(true);
         gregtechproxy.mDisableVanillaOres = tMainConfig.get(aTextGeneral, "DisableVanillaOres", true).getBoolean(true);
         gregtechproxy.mNerfDustCrafting = tMainConfig.get(aTextGeneral, "NerfDustCrafting", true).getBoolean(true);
@@ -459,9 +474,9 @@ public class GT_Mod implements IGT_Mod {
         					  int material = meta % 1000;
         					  String tag = "";
         					  String[] tags = new String[]{};
-        					  if(mIt==1)tags = new String[]{"dustTiny","dustSmall","dust","dustImpure","dustPure","crushed","crushedPurified","crushedCentrifuged","gem","nugget",null,"ingot","ingotHot","ingotDouble","ingotTriple","ingotQuadruple","ingotQuintuple","plate","plateDouble","plateTriple","plateQuadruple","plateQuintuple","plateDense","stick","lens","round","bolt","screw","ring","foil","cell","cellPlasma","cellMolten"};
+        					  if(mIt==1)tags = new String[]{"dustTiny","dustSmall","dust","dustImpure","dustPure","crushed","crushedPurified","crushedCentrifuged","gem","nugget",null,"ingot","ingotHot","ingotDouble","ingotTriple","ingotQuadruple","ingotQuintuple","plate", "plateDouble","plateTriple","plateQuadruple","plateQuintuple","plateDense","stick","lens","round","bolt","screw","ring","foil","cell","cellPlasma","cellMolten"};
         					  if(mIt==2)tags = new String[]{"toolHeadSword", "toolHeadPickaxe", "toolHeadShovel", "toolHeadAxe", "toolHeadHoe", "toolHeadHammer", "toolHeadFile", "toolHeadSaw", "toolHeadDrill", "toolHeadChainsaw", "toolHeadWrench", "toolHeadUniversalSpade", "toolHeadSense", "toolHeadPlow", "toolHeadArrow", "toolHeadBuzzSaw", "turbineBlade", null, null, "wireFine", "gearGtSmall", "rotor", "stickLong", "springSmall", "spring", "arrowGtWood", "arrowGtPlastic", "gemChipped", "gemFlawed", "gemFlawless", "gemExquisite", "gearGt"};
-        					  if(mIt==3)tags = new String[]{"crateGtDust", "crateGtIngot", "crateGtGem", "crateGtPlate"};
+        					  if(mIt==3)tags = new String[]{"crateGtDust", "crateGtIngot", "crateGtGem", "crateGtPlate", "itemCasing"};
         					  if(tags.length>prefix) tag = tags[prefix];
         					  if(GregTech_API.sGeneratedMaterials[material]!=null){
         						  tag += GregTech_API.sGeneratedMaterials[material].mName;

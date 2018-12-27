@@ -81,10 +81,14 @@ public class GT_MetaGenerated_Item_03
         ItemList.Circuit_Silicon_Ingot.set(addItem(tLastID = 30, "Monocrystalline Silicon Boule", "Raw Circuit", o));
         ItemList.Circuit_Silicon_Ingot2.set(addItem(tLastID = 31, "Glowstone doped Monocrystalline Silicon Boule", "Raw Circuit", o));
         ItemList.Circuit_Silicon_Ingot3.set(addItem(tLastID = 32, "Naquadah doped Monocrystalline Silicon Boule", "Raw Circuit", o));
+        ItemList.Circuit_Silicon_Ingot4.set(addItem(tLastID = 150, "Europium doped Monocrystalline Silicon Boule", "Raw Circuit", o));
+        ItemList.Circuit_Silicon_Ingot5.set(addItem(tLastID = 152, "Americium doped Monocrystalline Silicon Boule", "Raw Circuit", o));
 
         ItemList.Circuit_Silicon_Wafer.set(addItem(tLastID = 33, "Wafer", "Raw Circuit", o));
         ItemList.Circuit_Silicon_Wafer2.set(addItem(tLastID = 34, "Glowstone doped Wafer", "Raw Circuit", o));
         ItemList.Circuit_Silicon_Wafer3.set(addItem(tLastID = 35, "Naquadah doped Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Silicon_Wafer4.set(addItem(tLastID = 151, "Europium doped Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Silicon_Wafer5.set(addItem(tLastID = 153, "Americium doped Wafer", "Raw Circuit", o));
 
         ItemList.Circuit_Wafer_ILC.set(addItem(tLastID = 36, "Integrated Logic Circuit (Wafer)", "Raw Circuit", o));
         ItemList.Circuit_Chip_ILC.set(addItem(tLastID = 37, "Integrated Logic Circuit", "Integrated Circuit", o));
@@ -124,6 +128,21 @@ public class GT_MetaGenerated_Item_03
 
         ItemList.Circuit_Wafer_Simple_SoC.set(addItem(tLastID = 60, "Simple SoC Wafer", "Raw Primitive Circuit", o));
         ItemList.Circuit_Chip_Simple_SoC.set(addItem(tLastID = 61, "Simple SoC", "Simple System on a Chip", o));
+
+        ItemList.Circuit_Wafer_ULPIC.set(addItem(tLastID = 62, "ULPIC Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Chip_ULPIC.set(addItem(tLastID = 63, "Ultra Low Power IC", "Ultra Low Power Circuit", o));
+
+        ItemList.Circuit_Wafer_LPIC.set(addItem(tLastID = 64, "LPIC Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Chip_LPIC.set(addItem(tLastID = 65, "Low Power IC", "Low Power Circuit", o));
+
+        ItemList.Circuit_Wafer_NPIC.set(addItem(tLastID = 160, "NPIC Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Chip_NPIC.set(addItem(tLastID = 161, "Nano Power IC", "Nano Power Circuit", o));
+
+        ItemList.Circuit_Wafer_PPIC.set(addItem(tLastID = 162, "PPIC Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Chip_PPIC.set(addItem(tLastID = 163, "Piko Power IC", "Piko Power Circuit", o));
+
+        ItemList.Circuit_Wafer_QPIC.set(addItem(tLastID = 164, "QPIC Wafer", "Raw Circuit", o));
+        ItemList.Circuit_Chip_QPIC.set(addItem(tLastID = 165, "Quantum Power IC", "Quantum Power Circuit", o));
         /**
          * Engraved Crystal Chip
          * Engraved Lapotron Chip
@@ -136,9 +155,9 @@ public class GT_MetaGenerated_Item_03
         ItemList.Circuit_Chip_CrystalCPU.set(addItem(tLastID = 70, "Crystal Processing Unit", "Crystal CPU", o)); //Crystal chip elite part
         ItemList.Circuit_Chip_CrystalSoC.set(addItem(tLastID = 71, "Crystal SoC", "Crystal System on a Chip", o));
         ItemList.Circuit_Chip_NeuroCPU.set(addItem(tLastID = 72, "Neuro Processing Unit", "Neuro CPU", o));
-        ItemList.Circuit_Chip_Stemcell.set(addItem(tLastID = 73, "Stemcells", "Raw Intiligence (Disassembled Eggs)", o));
+        ItemList.Circuit_Chip_Stemcell.set(addItem(tLastID = 73, "Stemcells", "Raw inteligence", o));
         ItemList.Circuit_Parts_RawCrystalParts.set(addItem(tLastID = 74, "Raw Crystal Chip Parts", "Raw Crystal Processor Parts", o));
-        ItemList.Circuit_Chip_Biocell.set(addItem(tLastID = 76, "Biocells", "Mutated Raw Intiligence", o));
+        ItemList.Circuit_Chip_Biocell.set(addItem(tLastID = 76, "Biocells", "Mutated Raw inteligence", o));
         ItemList.Circuit_Chip_BioCPU.set(addItem(tLastID = 77, "Bio Processing Unit", "Bio CPU", o));
 
         //Nand Chip
@@ -180,9 +199,9 @@ public class GT_MetaGenerated_Item_03
         ItemList.Circuit_Wetwaremainframe.set(addItem(tLastID = 95, "Wetware Mainframe", "An Infinite Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Infinite), SubTag.NO_UNIFICATION}));
         ItemList.Circuit_Ultimate.set(ItemList.Circuit_Ultimatecrystalcomputer.get(1L, new Object[0]));//maybe should be removed
         ItemList.Circuit_Biowarecomputer.set(addItem(tLastID = 98, "Biowareprocessor Assembly", "A Super Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Superconductor), SubTag.NO_UNIFICATION}));
-        ItemList.Circuit_Biowaresupercomputer.set(addItem(tLastID = 99, "Bioware Supercomputer", "A Infinite Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Infinite), SubTag.NO_UNIFICATION}));
+        ItemList.Circuit_Biowaresupercomputer.set(addItem(tLastID = 99, "Bioware Supercomputer", "An Infinite Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Infinite), SubTag.NO_UNIFICATION}));
 
-        ItemList.Circuit_Bioprocessor.set(addItem(tLastID = 97, "Bioprocessor", "A Ultimate Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), SubTag.NO_UNIFICATION}));
+        ItemList.Circuit_Bioprocessor.set(addItem(tLastID = 97, "Bioprocessor", "An Ultimate Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), SubTag.NO_UNIFICATION}));
 
         ItemList.Circuit_Board_Coated_Basic.set(addItem(tLastID = 100, "Circuit Board", "A basic Circuit Board", o));
         ItemList.Circuit_Board_Phenolic_Good.set(addItem(tLastID = 101, "Good Circuit Board", "A good Circuit Board", o));
@@ -191,7 +210,7 @@ public class GT_MetaGenerated_Item_03
         ItemList.Circuit_Board_Multifiberglass_Elite.set(addItem(tLastID = 104, "Elite Circuit Board", "A elite Circuit Board", o));
         ItemList.Circuit_Board_Wetware_Extreme.set(addItem(tLastID = 105, "Extreme Wetware Lifesupport Circuit Board", "The Board that keeps life", o));
         ItemList.Circuit_Board_Plastic_Advanced.set(addItem(tLastID = 106, "Plastic Circuit Board", "A good Board", o));
-        ItemList.Circuit_Board_Bio_Ultra.set(addItem(tLastID = 107, "Ultra Bio Mutted Circuit Board", "Bio genetic mutated Board", o));
+        ItemList.Circuit_Board_Bio_Ultra.set(addItem(tLastID = 107, "Ultra Bio Mutated Circuit Board", "Bio genetic mutated Board", o));
         ItemList.Circuit_Biomainframe.set(addItem(tLastID = 120, "Bio Mainframe", "A Bio Circuit",  new Object[]{OrePrefixes.circuit.get(Materials.Bio), SubTag.NO_UNIFICATION}));
 
         ItemList.Tube_Wires.set(addItem(tLastID = 110, "Tube Wires", "For the Vacuum Tubes", o));
@@ -204,6 +223,16 @@ public class GT_MetaGenerated_Item_03
         GregTech_API.registerCover(ItemList.Cover_SolarPanel_UEV.get(1L, new Object[0]), new GT_RenderedTexture(Textures.BlockIcons.SOLARPANEL_UEV), new GT_Cover_SolarPanel(8388608));
         GregTech_API.registerCover(ItemList.Cover_SolarPanel_UIV.get(1L, new Object[0]), new GT_RenderedTexture(Textures.BlockIcons.SOLARPANEL_UIV), new GT_Cover_SolarPanel(33554432));
 
+        ItemList.ULV_Coil.set(addItem(tLastID = 140, "Ultra Low Voltage Coil", "Primitive Coil", o));
+        ItemList.LV_Coil.set(addItem(tLastID = 141, "Low Voltage Coil", "Basic Coil", o));
+        ItemList.MV_Coil.set(addItem(tLastID = 142, "Medium Voltage Coil", "Good Coil", o));
+        ItemList.HV_Coil.set(addItem(tLastID = 143, "High Voltage Coil", "Advanced Coil", o));
+        ItemList.EV_Coil.set(addItem(tLastID = 144, "Extreme Voltage Coil", "Extreme Coil", o));
+        ItemList.IV_Coil.set(addItem(tLastID = 145, "Insane Voltage Coil", "Elite Coil", o));
+        ItemList.LuV_Coil.set(addItem(tLastID = 146, "Ludicrous Voltage Coil", "Master Coil", o));
+        ItemList.ZPM_Coil.set(addItem(tLastID = 147, "ZPM Voltage Coil", "Ultimate Coil", o));
+        ItemList.UV_Coil.set(addItem(tLastID = 148, "Ultimate Voltage Coil", "Super Coil", o));
+        ItemList.UHV_Coil.set(addItem(tLastID = 149, "Highly Ultimate Voltage Coil", "Infinite Coil", o));
     }
 
     public boolean doesShowInCreative(OrePrefixes aPrefix, Materials aMaterial, boolean aDoShowAllItems) {

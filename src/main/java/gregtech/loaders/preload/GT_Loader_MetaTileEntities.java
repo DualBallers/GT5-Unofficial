@@ -7,11 +7,7 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.*;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.metatileentity.implementations.*;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.api.util.GT_Log;
-import gregtech.api.util.GT_ModHandler;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.*;
 import gregtech.common.tileentities.automation.*;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Bronze;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Lava;
@@ -198,13 +194,13 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
 
         GT_ModHandler.addCraftingRecipe(ItemList.Transformer_LV_ULV.get(1L, new Object[0]), bitsd, new Object[]{" BB", "CM ", " BB", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.cableGt01.get(Materials.Tin), 'B', OrePrefixes.cableGt01.get(Materials.Lead)});
         GT_ModHandler.addCraftingRecipe(ItemList.Transformer_MV_LV.get(1L, new Object[0]), bitsd, new Object[]{" BB", "CM ", " BB", 'M', ItemList.Hull_LV, 'C', OrePrefixes.cableGt01.get(Materials.AnyCopper), 'B', OrePrefixes.cableGt01.get(Materials.Tin)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_HV_MV.get(1L, new Object[0]), bitsd, new Object[]{" BB", "CM ", " BB", 'M', ItemList.Hull_MV, 'C', OrePrefixes.cableGt01.get(Materials.Gold), 'B', OrePrefixes.cableGt01.get(Materials.AnyCopper)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_EV_HV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_HV, 'C', OrePrefixes.cableGt01.get(Materials.Aluminium), 'B', OrePrefixes.cableGt01.get(Materials.Gold),'K',ItemList.Circuit_Parts_Coil});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_IV_EV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_EV, 'C', OrePrefixes.cableGt01.get(Materials.Tungsten), 'B', OrePrefixes.cableGt01.get(Materials.Aluminium),'K',ItemList.Circuit_Parts_Coil});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_HV_MV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_MV, 'C', OrePrefixes.cableGt01.get(Materials.Gold), 'B', OrePrefixes.cableGt01.get(Materials.AnyCopper),'K',ItemList.Circuit_Parts_Coil});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_EV_HV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_HV, 'C', OrePrefixes.cableGt01.get(Materials.Aluminium), 'B', OrePrefixes.cableGt01.get(Materials.Gold),'K',ItemList.Circuit_Chip_ULPIC});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_IV_EV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_EV, 'C', OrePrefixes.cableGt01.get(Materials.Tungsten), 'B', OrePrefixes.cableGt01.get(Materials.Aluminium),'K',ItemList.Circuit_Chip_LPIC});
         GT_ModHandler.addCraftingRecipe(ItemList.Transformer_LuV_IV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_IV, 'C', OrePrefixes.cableGt01.get(Materials.VanadiumGallium), 'B', OrePrefixes.cableGt01.get(Materials.Tungsten),'K',ItemList.Circuit_Chip_PIC});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_ZPM_LuV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_LuV, 'C', OrePrefixes.cableGt02.get(Materials.Naquadah), 'B', OrePrefixes.cableGt01.get(Materials.VanadiumGallium),'K',ItemList.Circuit_Chip_PIC});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_UV_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_ZPM, 'C', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy), 'B', OrePrefixes.cableGt02.get(Materials.Naquadah),'K',ItemList.Circuit_Chip_HPIC});
-        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_MAX_UV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_UV, 'C', OrePrefixes.wireGt01.get(Materials.SuperconductorUHV), 'B', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy),'K',ItemList.Circuit_Chip_HPIC});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_ZPM_LuV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_LuV, 'C', OrePrefixes.cableGt02.get(Materials.Naquadah), 'B', OrePrefixes.cableGt01.get(Materials.VanadiumGallium),'K',ItemList.Circuit_Chip_HPIC});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_UV_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_ZPM, 'C', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy), 'B', OrePrefixes.cableGt02.get(Materials.Naquadah),'K',ItemList.Circuit_Chip_UHPIC});
+        GT_ModHandler.addCraftingRecipe(ItemList.Transformer_MAX_UV.get(1L, new Object[0]), bitsd, new Object[]{"KBB", "CM ", "KBB", 'M', ItemList.Hull_UV, 'C', OrePrefixes.wireGt01.get(Materials.SuperconductorUHV), 'B', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy),'K',ItemList.Circuit_Chip_NPIC});
 
         ItemList.Hatch_Dynamo_ULV.set(new GT_MetaTileEntity_Hatch_Dynamo(30, "hatch.dynamo.tier.00", "ULV Dynamo Hatch", 0).getStackForm(1L));
         ItemList.Hatch_Dynamo_LV.set(new GT_MetaTileEntity_Hatch_Dynamo(31, "hatch.dynamo.tier.01", "LV Dynamo Hatch", 1).getStackForm(1L));
@@ -217,16 +213,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Dynamo_UV.set(new GT_MetaTileEntity_Hatch_Dynamo(38, "hatch.dynamo.tier.08", "UV Dynamo Hatch", 8).getStackForm(1L));
         ItemList.Hatch_Dynamo_MAX.set(new GT_MetaTileEntity_Hatch_Dynamo(39, "hatch.dynamo.tier.09", "UHV Dynamo Hatch", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_ULV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.cableGt01.get(Materials.Lead)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_LV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_LV, 'C', OrePrefixes.cableGt01.get(Materials.Tin)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_MV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_MV, 'C', OrePrefixes.cableGt01.get(Materials.AnyCopper)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_HV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_HV, 'C', OrePrefixes.cableGt01.get(Materials.Gold)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_EV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_EV, 'C', OrePrefixes.cableGt01.get(Materials.Aluminium)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_IV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_IV, 'C', OrePrefixes.cableGt01.get(Materials.Tungsten)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_LuV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_LuV, 'C', OrePrefixes.cableGt01.get(Materials.VanadiumGallium)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_ZPM.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_ZPM, 'C', OrePrefixes.cableGt02.get(Materials.Naquadah)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_UV.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_UV, 'C', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_MAX.get(1L, new Object[0]), bitsd, new Object[]{" MC", 'M', ItemList.Hull_MAX, 'C', OrePrefixes.wireGt01.get(Materials.SuperconductorUHV)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_ULV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "SMP", "XOL", 'M', ItemList.Hull_ULV, 'S', OrePrefixes.spring.get(Materials.Lead), 'X', OrePrefixes.circuit.get(Materials.Primitive), 'O', ItemList.ULV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', OrePrefixes.rotor.get(Materials.Lead)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_LV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "SMP", "XOL", 'M', ItemList.Hull_LV, 'S', OrePrefixes.spring.get(Materials.Tin), 'X', OrePrefixes.circuit.get(Materials.Basic), 'O', ItemList.LV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', ItemList.Electric_Pump_LV});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Dynamo_MV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "SMP", "XOL", 'M', ItemList.Hull_MV, 'S', OrePrefixes.spring.get(Materials.Copper), 'X', ItemList.Circuit_Chip_ULPIC, 'O', ItemList.MV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', ItemList.Electric_Pump_MV});
 
         ItemList.Hatch_Energy_ULV.set(new GT_MetaTileEntity_Hatch_Energy(40, "hatch.energy.tier.00", "ULV Energy Hatch", 0).getStackForm(1L));
         ItemList.Hatch_Energy_LV.set(new GT_MetaTileEntity_Hatch_Energy(41, "hatch.energy.tier.01", "LV Energy Hatch", 1).getStackForm(1L));
@@ -239,16 +228,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Energy_UV.set(new GT_MetaTileEntity_Hatch_Energy(48, "hatch.energy.tier.08", "UV Energy Hatch", 8).getStackForm(1L));
         ItemList.Hatch_Energy_MAX.set(new GT_MetaTileEntity_Hatch_Energy(49, "hatch.energy.tier.09", "UHV Energy Hatch", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_ULV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.cableGt01.get(Materials.Lead)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_LV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_LV, 'C', OrePrefixes.cableGt01.get(Materials.Tin)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_MV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_MV, 'C', OrePrefixes.cableGt01.get(Materials.AnyCopper)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_HV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_HV, 'C', OrePrefixes.cableGt01.get(Materials.Gold)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_EV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_EV, 'C', OrePrefixes.cableGt01.get(Materials.Aluminium)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_IV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_IV, 'C', OrePrefixes.cableGt01.get(Materials.Tungsten)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_LuV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_LuV, 'C', OrePrefixes.cableGt01.get(Materials.VanadiumGallium)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_ZPM, 'C', OrePrefixes.cableGt02.get(Materials.Naquadah)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_UV.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_UV, 'C', OrePrefixes.cableGt04.get(Materials.NaquadahAlloy)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_MAX.get(1L, new Object[0]), bitsd, new Object[]{"CM ", 'M', ItemList.Hull_MAX, 'C', OrePrefixes.wireGt01.get(Materials.SuperconductorUHV)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_ULV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "CMP", "XOL", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.cableGt01.get(Materials.Lead), 'X', OrePrefixes.circuit.get(Materials.Primitive), 'O', ItemList.ULV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', OrePrefixes.rotor.get(Materials.Lead)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_LV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "CMP", "XOL", 'M', ItemList.Hull_LV, 'C', OrePrefixes.cableGt01.get(Materials.Tin), 'X', OrePrefixes.circuit.get(Materials.Basic), 'O', ItemList.LV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', ItemList.Electric_Pump_LV});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Energy_MV.get(1L, new Object[0]), bitsd, new Object[]{"XOL", "CMP", "XOL", 'M', ItemList.Hull_MV, 'C', OrePrefixes.cableGt01.get(Materials.Copper), 'X', ItemList.Circuit_Chip_ULPIC, 'O', ItemList.MV_Coil, 'L', OrePrefixes.cell.get(Materials.Lubricant), 'P', ItemList.Electric_Pump_MV});
 
         ItemList.Hatch_Input_ULV.set(new GT_MetaTileEntity_Hatch_Input(50, "hatch.input.tier.00", "Input Hatch (ULV)", 0).getStackForm(1L));
         ItemList.Hatch_Input_LV.set(new GT_MetaTileEntity_Hatch_Input(51, "hatch.input.tier.01", "Input Hatch (LV)", 1).getStackForm(1L));
@@ -261,16 +243,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Input_UV.set(new GT_MetaTileEntity_Hatch_Input(58, "hatch.input.tier.08", "Input Hatch (UV)", 8).getStackForm(1L));
         ItemList.Hatch_Input_MAX.set(new GT_MetaTileEntity_Hatch_Input(59, "hatch.input.tier.09", "Input Hatch (UHV)", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_ULV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_ULV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_LV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_LV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_MV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_MV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_HV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_HV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_EV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_EV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_IV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_IV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_LuV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_LuV, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_ZPM, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_UV.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_UV, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_MAX.get(1L, new Object[0]), bitsd, new Object[]{"G", "M", 'M', ItemList.Hull_MAX, 'G', Ic2Items.reinforcedGlass});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_ULV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.plate.get(Materials.Rubber), 'I', OrePrefixes.pipeMedium.get(Materials.Copper), 'X', ItemList.Cell_Empty});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_LV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_LV, 'C', ItemList.Electric_Pump_LV,  'I', OrePrefixes.pipeMedium.get(Materials.Bronze), 'X', ItemList.Large_Fluid_Cell_Steel});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_MV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_MV, 'C', ItemList.Electric_Pump_MV,  'I', OrePrefixes.pipeMedium.get(Materials.Steel), 'X', ItemList.Large_Fluid_Cell_Aluminium});
 
         ItemList.Hatch_Output_ULV.set(new GT_MetaTileEntity_Hatch_Output(60, "hatch.output.tier.00", "Output Hatch (ULV)", 0).getStackForm(1L));
         ItemList.Hatch_Output_LV.set(new GT_MetaTileEntity_Hatch_Output(61, "hatch.output.tier.01", "Output Hatch (LV)", 1).getStackForm(1L));
@@ -283,16 +258,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Output_UV.set(new GT_MetaTileEntity_Hatch_Output(68, "hatch.output.tier.08", "Output Hatch (UV)", 8).getStackForm(1L));
         ItemList.Hatch_Output_MAX.set(new GT_MetaTileEntity_Hatch_Output(69, "hatch.output.tier.09", "Output Hatch (UHV)", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_ULV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_ULV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_LV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_LV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_MV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_MV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_HV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_HV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_EV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_EV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_IV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_IV, 'G', new ItemStack(Blocks.glass, 1)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_LuV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_LuV, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_ZPM, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_UV.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_UV, 'G', Ic2Items.reinforcedGlass});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_MAX.get(1L, new Object[0]), bitsd, new Object[]{"M", "G", 'M', ItemList.Hull_MAX, 'G', Ic2Items.reinforcedGlass});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_ULV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.plate.get(Materials.Rubber), 'I', OrePrefixes.pipeMedium.get(Materials.Copper), 'X', ItemList.Cell_Empty});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_LV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_LV, 'C', ItemList.Electric_Pump_LV,  'I', OrePrefixes.pipeMedium.get(Materials.Bronze), 'X', ItemList.Large_Fluid_Cell_Steel});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_MV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_MV, 'C', ItemList.Electric_Pump_MV,  'I', OrePrefixes.pipeMedium.get(Materials.Steel), 'X', ItemList.Large_Fluid_Cell_Aluminium});
 
         ItemList.Quantum_Tank_LV.set(new GT_MetaTileEntity_QuantumTank(120, "quantum.tank.tier.06", "Quantum Tank I", 6).getStackForm(1L));
         ItemList.Quantum_Tank_MV.set(new GT_MetaTileEntity_QuantumTank(121, "quantum.tank.tier.07", "Quantum Tank II", 7).getStackForm(1L));
@@ -341,16 +309,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Input_Bus_UV.set(new GT_MetaTileEntity_Hatch_InputBus(78, "hatch.input_bus.tier.08", "Input Bus (UV)", 8).getStackForm(1L));
         ItemList.Hatch_Input_Bus_MAX.set(new GT_MetaTileEntity_Hatch_InputBus(79, "hatch.input_bus.tier.09", "Input Bus (UHV)", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_ULV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_ULV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_LV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_LV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_MV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_MV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_HV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_HV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_EV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_EV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_IV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_IV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_LuV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_LuV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_ZPM, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_UV.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_UV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_MAX.get(1L, new Object[0]), bitsd, new Object[]{"C", "M", 'M', ItemList.Hull_MAX, 'C', OreDictNames.craftingChest});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_ULV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.plate.get(Materials.Lead), 'I', OrePrefixes.pipeMedium.get(Materials.Tin), 'X', new ItemStack(Blocks.chest, 1, 0)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_LV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_LV, 'C', ItemList.Conveyor_Module_LV,  'I', OrePrefixes.pipeMedium.get(Materials.Nickel), 'X', new ItemStack(Blocks.chest, 1, 0)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_MV.get(1L, new Object[0]), bitsd, new Object[]{"CX ", "MI ", 'M', ItemList.Hull_MV, 'C', ItemList.Conveyor_Module_MV,  'I', OrePrefixes.pipeMedium.get(Materials.Cobalt), 'X', new ItemStack(Blocks.chest, 1, 0)});
 
         ItemList.Hatch_Output_Bus_ULV.set(new GT_MetaTileEntity_Hatch_OutputBus(80, "hatch.output_bus.tier.00", "Output Bus (ULV)", 0).getStackForm(1L));
         ItemList.Hatch_Output_Bus_LV.set(new GT_MetaTileEntity_Hatch_OutputBus(81, "hatch.output_bus.tier.01", "Output Bus (LV)", 1).getStackForm(1L));
@@ -363,16 +324,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Output_Bus_UV.set(new GT_MetaTileEntity_Hatch_OutputBus(88, "hatch.output_bus.tier.08", "Output Bus (UV)", 8).getStackForm(1L));
         ItemList.Hatch_Output_Bus_MAX.set(new GT_MetaTileEntity_Hatch_OutputBus(89, "hatch.output_bus.tier.09", "Output Bus (UHV)", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_ULV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_ULV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_LV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_LV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_MV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_MV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_HV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_HV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_EV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_EV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_IV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_IV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_LuV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_LuV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_ZPM, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_UV.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_UV, 'C', OreDictNames.craftingChest});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_MAX.get(1L, new Object[0]), bitsd, new Object[]{"M", "C", 'M', ItemList.Hull_MAX, 'C', OreDictNames.craftingChest});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_ULV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_ULV, 'C', OrePrefixes.plate.get(Materials.Lead), 'I', OrePrefixes.pipeMedium.get(Materials.Tin), 'X', new ItemStack(Blocks.chest, 1, 0)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_LV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_LV, 'C', ItemList.Conveyor_Module_LV,  'I', OrePrefixes.pipeMedium.get(Materials.Nickel), 'X', new ItemStack(Blocks.chest, 1, 0)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_MV.get(1L, new Object[0]), bitsd, new Object[]{" XC", "IM ", 'M', ItemList.Hull_MV, 'C', ItemList.Conveyor_Module_MV,  'I', OrePrefixes.pipeMedium.get(Materials.Cobalt), 'X', new ItemStack(Blocks.chest, 1, 0)});
 
         ItemList.Hatch_Maintenance.set(new GT_MetaTileEntity_Hatch_Maintenance(90, "hatch.maintenance", "Maintenance Hatch", 1).getStackForm(1L));
 
@@ -403,16 +357,8 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Muffler_UV.set(new GT_MetaTileEntity_Hatch_Muffler(98, "hatch.muffler.tier.08", "Muffler Hatch (UV)", 8).getStackForm(1L));
         ItemList.Hatch_Muffler_MAX.set(new GT_MetaTileEntity_Hatch_Muffler(99, "hatch.muffler.tier.09", "Muffler Hatch (UHV)", 9).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_LV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_LV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_MV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_MV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_HV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_HV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_EV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_EV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_IV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_IV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_LuV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_LuV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_ZPM.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_ZPM, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_UV.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_UV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_MAX.get(1L, new Object[0]), bitsd, new Object[]{"M", "P", 'M', ItemList.Hull_MAX, 'P', OrePrefixes.pipeMedium.get(Materials.Steel)});
-
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_LV.get(1L, new Object[0]), bitsd, new Object[]{"MX ", "PR ", 'M', ItemList.Hull_LV, 'P', OrePrefixes.pipeMedium.get(Materials.Bronze), 'R', OrePrefixes.rotor.get(Materials.Bronze), 'X', ItemList.Electric_Motor_LV});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Muffler_MV.get(1L, new Object[0]), bitsd, new Object[]{"MX ", "PR ", 'M', ItemList.Hull_LV, 'P', OrePrefixes.pipeMedium.get(Materials.Steel), 'R', OrePrefixes.rotor.get(Materials.Steel), 'X', ItemList.Electric_Motor_MV});
 
         ItemList.Machine_Bronze_Boiler.set(new GT_MetaTileEntity_Boiler_Bronze(100, "boiler.bronze", "Small Coal Boiler").getStackForm(1L));
         ItemList.Machine_Steel_Boiler.set(new GT_MetaTileEntity_Boiler_Steel(101, "boiler.steel", "High Pressure Coal Boiler").getStackForm(1L));
@@ -598,10 +544,10 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         //ItemList.Machine_UV_AlloySmelter.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(208, "basicmachine.alloysmelter.tier.08", "Advanced Alloy Smelter VII", 8, "HighTech combination Smelter", GT_Recipe.GT_Recipe_Map.sAlloySmelterRecipes, 2, 1, 0, 0, 1, "AlloySmelter.png", (String) GregTech_API.sSoundList.get(Integer.valueOf(208)), aBoolConst_0, aBoolConst_0, 0, "ALLOY_SMELTER", new Object[]{"ECE", aTextCableHull, aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'E', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.COIL_HEATING_DOUBLE}).getStackForm(1L));
 
         ItemList.Machine_LV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(211, "basicmachine.assembler.tier.01", "Basic Assembling Machine", 1, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
-        ItemList.Machine_MV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(212, "basicmachine.assembler.tier.02", "Advanced Assembling Machine", 2, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
-        ItemList.Machine_HV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(213, "basicmachine.assembler.tier.03", "Advanced Assembling Machine II", 3, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
-        ItemList.Machine_EV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(214, "basicmachine.assembler.tier.04", "Advanced Assembling Machine III", 4, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
-        ItemList.Machine_IV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(215, "basicmachine.assembler.tier.05", "Advanced Assembling Machine IV", 5, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
+        ItemList.Machine_MV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(212, "basicmachine.assembler.tier.02", "Advanced Assembling Machine", 2, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 9, 1, 24000, 0, 1, "Assembler2.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
+        ItemList.Machine_HV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(213, "basicmachine.assembler.tier.03", "Advanced Assembling Machine II", 3, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 9, 1, 32000, 0, 1, "Assembler2.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
+        ItemList.Machine_EV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(214, "basicmachine.assembler.tier.04", "Advanced Assembling Machine III", 4, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 9, 1, 48000, 0, 1, "Assembler2.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
+        ItemList.Machine_IV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(215, "basicmachine.assembler.tier.05", "Advanced Assembling Machine IV", 5, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 9, 1, 64000, 0, 1, "Assembler2.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
         //ItemList.Machine_LuV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(216, "basicmachine.assembler.tier.06", "Advanced Assembling Machine V", 6, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
         //ItemList.Machine_ZPM_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(217, "basicmachine.assembler.tier.07", "Advanced Assembling Machine VI", 7, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
         //ItemList.Machine_UV_Assembler.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(218, "basicmachine.assembler.tier.08", "Advanced Assembling Machine VII", 8, "Avengers, Assemble!", GT_Recipe.GT_Recipe_Map.sAssemblerRecipes, 6, 1, 16000, 0, 1, "Assembler.png", "", aBoolConst_0, aBoolConst_0, 0, "ASSEMBLER", new Object[]{"ACA", "VMV", aTextWireCoil, 'M', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.HULL, 'V', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CONVEYOR, 'A', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.ROBOT_ARM, 'C', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.CIRCUIT, 'W', GT_MetaTileEntity_BasicMachine_GT_Recipe.X.WIRE}).getStackForm(1L));
@@ -1417,12 +1363,15 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         makeWires(Materials.Vanadiumtriindinid, 2260,  bEC ? 1L : 128L, bEC ? 2L : 256L, 2L, gregtech.api.enums.GT_Values.V[5], true, aBoolConst_0);
         makeWires(Materials.Tetraindiumditindibariumtitaniumheptacoppertetrakaidekaoxid, 2280, 2L, 2L, 4L, gregtech.api.enums.GT_Values.V[6], true, aBoolConst_0);
         makeWires(Materials.Tetranaquadahdiindiumhexaplatiumosminid, 2300, 2L, 2L, 4L, gregtech.api.enums.GT_Values.V[7], true, aBoolConst_0);
+        makeWires(Materials.Longasssuperconductornameforuvwire, 2500, 2L, 2L, 8L, gregtech.api.enums.GT_Values.V[8], true, aBoolConst_0);
+        makeWires(Materials.Longasssuperconductornameforuhvwire, 2520, 2L, 2L, 8L, gregtech.api.enums.GT_Values.V[9], true, aBoolConst_0);
         makeWires(Materials.SuperconductorMV, 2320, 0L, 0L, 2L, gregtech.api.enums.GT_Values.V[2], aBoolConst_0, true);
         makeWires(Materials.SuperconductorHV, 2340, 0L, 0L, 2L, gregtech.api.enums.GT_Values.V[3], aBoolConst_0, true);
         makeWires(Materials.SuperconductorEV, 2360, 0L, 0L, 4L, gregtech.api.enums.GT_Values.V[4], aBoolConst_0, true);
         makeWires(Materials.SuperconductorIV, 2380, 0L, 0L, 4L, gregtech.api.enums.GT_Values.V[5], aBoolConst_0, true);
         makeWires(Materials.SuperconductorLuV, 2400, 0L, 0L, 8L, gregtech.api.enums.GT_Values.V[6], aBoolConst_0, true);
         makeWires(Materials.SuperconductorZPM, 2420, 0L, 0L, 8L, gregtech.api.enums.GT_Values.V[7], aBoolConst_0, true);
+        makeWires(Materials.SuperconductorUV, 2440, 0L, 0L, 16L, gregtech.api.enums.GT_Values.V[8], aBoolConst_0, true);
 
         if (!GT_Mod.gregtechproxy.mDisableIC2Cables) {
             GT_ModHandler.addCraftingRecipe(GT_ModHandler.getIC2Item("copperCableItem", 2L), GT_ModHandler.RecipeBits.NOT_REMOVABLE | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{"xP", 'P', OrePrefixes.plate.get(Materials.AnyCopper)});
@@ -1494,9 +1443,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         generateFluidPipes(Materials.Polytetrafluoroethylene, Materials.Polytetrafluoroethylene.mName, "PTFE", 5680, 480, 600, true);
         generateFluidMultiPipes(Materials.Polytetrafluoroethylene, Materials.Polytetrafluoroethylene.mName, "PTFE", 5685, 480, 600, true);
 
-        GT_Values.RA.addAssemblerRecipe(GT_OreDictUnificator.get(OrePrefixes.pipeSmall, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_EV.get(1L, new Object[0]), GT_OreDictUnificator.get(OrePrefixes.pipeSmall, Materials.Ultimate, 1L), 300, 96);
-        GT_Values.RA.addAssemblerRecipe(GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_IV.get(1L, new Object[0]), GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Ultimate, 1L), 400, 148);
-        GT_Values.RA.addAssemblerRecipe(GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_IV.get(2L, new Object[0]), GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.Ultimate, 1L), 600, 256);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{GT_OreDictUnificator.get(OrePrefixes.pipeSmall, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_EV.get(1L, new Object[0]), GT_Utility.getIntegratedCircuit(5)}, GT_Values.NF, GT_OreDictUnificator.get(OrePrefixes.pipeSmall, Materials.Ultimate, 1L), 300, 1920);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_IV.get(1L, new Object[0]), GT_Utility.getIntegratedCircuit(5)}, GT_Values.NF, GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Ultimate, 1L), 400, 4096);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.TungstenSteel, 1L), ItemList.Electric_Pump_IV.get(2L, new Object[0]), GT_Utility.getIntegratedCircuit(5)}, GT_Values.NF, GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.Ultimate, 1L), 600, 7680);
 
         //GT_ModHandler.addCraftingRecipe(GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.Superconductor, 1L), bitsd, new Object[]{"WSW", aTextCableHull, "WSW", 'M', OrePrefixes.pipeSmall.get(Materials.Titanium), 'C', OrePrefixes.plate.get(Materials.NeodymiumMagnetic), 'W', OrePrefixes.plate.get(Materials.Plastic), 'S', OrePrefixes.wireGt02.get(Materials.Superconductor)});
 
